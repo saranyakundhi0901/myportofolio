@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Saranya</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Saranya<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h2 class="section-title reveal">My Projects</h2>
+        <p class="section-subtitle reveal">A few things I've built while learning</p>
+
+        <div class="filters reveal">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="css">CSS</button>
+          <button class="filter-btn" data-filter="js">JavaScript</button>
+        </div>
+
+        <div class="grid" id="project-grid">
+
+          <div class="project-card reveal" data-category="js">
+            <div class="project-thumb">✅</div>
+            <div class="project-body">
+              <h3>To-Do List App</h3>
+              <p>A task manager with add, complete, and delete functionality, using localStorage to save tasks between visits.</p>
+              <div class="tag-list">
+                <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="#">Live Demo →</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" data-category="css">
+            <div class="project-thumb">🎴</div>
+            <div class="project-body">
+              <h3>Responsive Card Layout</h3>
+              <p>A pricing/feature card grid built with CSS Grid and Flexbox, fully responsive across breakpoints.</p>
+              <div class="tag-list">
+                <span class="tag">HTML</span><span class="tag">CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="#">Live Demo →</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" data-category="js">
+            <div class="project-thumb">🌤️</div>
+            <div class="project-body">
+              <h3>Weather App</h3>
+              <p>Fetches live weather data from an API and displays current conditions based on city search.</p>
+              <div class="tag-list">
+                <span class="tag">JavaScript</span><span class="tag">Fetch API</span>
+              </div>
+              <div class="project-links">
+                <a href="#">Live Demo →</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" data-category="css">
+            <div class="project-thumb">🖼️</div>
+            <div class="project-body">
+              <h3>Image Gallery</h3>
+              <p>A filterable image gallery with hover effects and a lightbox-style modal, styled entirely with CSS.</p>
+              <div class="tag-list">
+                <span class="tag">HTML</span><span class="tag">CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="#">Live Demo →</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" data-category="js">
+            <div class="project-thumb">🧮</div>
+            <div class="project-body">
+              <h3>Calculator</h3>
+              <p>A fully functional calculator with keyboard support and proper operator precedence handling.</p>
+              <div class="tag-list">
+                <span class="tag">JavaScript</span><span class="tag">DOM</span>
+              </div>
+              <div class="project-links">
+                <a href="#">Live Demo →</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card reveal" data-category="css">
+            <div class="project-thumb">🌗</div>
+            <div class="project-body">
+              <h3>Dark/Light Theme Toggle</h3>
+              <p>A theme switcher using CSS variables and JavaScript to persist user preference across sessions.</p>
+              <div class="tag-list">
+                <span class="tag">CSS</span><span class="tag">JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a href="#">Live Demo →</a>
+                <a href="#">Source Code</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:saranya@example.com">Email</a>
+      </div>
+      <p>&copy; <span id="year"></span> Saranya. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // project filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        projectCards.forEach((card) => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('hidden-project');
+          } else {
+            card.classList.add('hidden-project');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

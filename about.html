@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Saranya</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">Saranya<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h2 class="section-title reveal">About Me</h2>
+        <p class="section-subtitle reveal">A little about who I am and what I do</p>
+
+        <div class="about-grid">
+          <div class="about-photo reveal">SA</div>
+
+          <div class="reveal">
+            <p style="margin-bottom: 1.5rem; color: var(--text-dim);">
+              I'm Saranya, a front-end developer who enjoys turning ideas into clean,
+              functional websites. I started learning web development from scratch and
+              have been building projects ever since to apply what I learn — from simple
+              landing pages to small interactive apps. I care about writing readable code
+              and making sure things work well on every screen size.
+            </p>
+            <p style="margin-bottom: 2rem; color: var(--text-dim);">
+              When I'm not coding, I'm usually exploring design inspiration, reading about
+              new web technologies, or working on a side project just for fun.
+            </p>
+
+            <h3 style="margin-bottom: 1.25rem;">Skills</h3>
+            <div class="skill-bar-group">
+              <div class="skill-bar-label"><span>HTML</span><span>90%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-label"><span>CSS</span><span>85%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-label"><span>JavaScript</span><span>75%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-bar-group">
+              <div class="skill-bar-label"><span>Responsive Design</span><span>80%</span></div>
+              <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title reveal">My Journey</h2>
+        <p class="section-subtitle reveal">How I got here</p>
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <p class="timeline-date">2026</p>
+            <h4>Building My Portfolio</h4>
+            <p>Applying everything learned in CSS and JavaScript into a complete personal website.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2025</p>
+            <h4>Learned JavaScript</h4>
+            <p>Moved from static pages to interactive ones — DOM events, functions, and logic.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2025</p>
+            <h4>Learned CSS</h4>
+            <p>Started styling pages properly — layout, Flexbox, Grid, and responsive design.</p>
+          </div>
+          <div class="timeline-item">
+            <p class="timeline-date">2024</p>
+            <h4>Started with HTML</h4>
+            <p>Wrote my first web page and got hooked on building things for the web.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:saranya@example.com">Email</a>
+      </div>
+      <p>&copy; <span id="year"></span> Saranya. Built with HTML, CSS &amp; JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // animate skill bars when in view
+    const fills = document.querySelectorAll('.skill-bar-fill');
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.dataset.width + '%';
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    fills.forEach((f) => skillObserver.observe(f));
+  </script>
+</body>
+</html>
